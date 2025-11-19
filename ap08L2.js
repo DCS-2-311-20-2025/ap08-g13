@@ -77,7 +77,7 @@ export function init(scene, size, id, offset, texture) {
         bldg.position.set(x, bldgH/2,z);
         scene.add(bldg);
     }
-    makeBuilding(-10, -20, 0);
+    makeBuilding(-10, -20, 4);
     makeBuilding(-45, -45, 2);
 
     
