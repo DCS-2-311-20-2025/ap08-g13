@@ -19,6 +19,8 @@ let course;
 export const origin = new THREE.Vector3();
 export const controlPoints = [
     [ 25, 40],
+    [ 13,  7],
+    [-28, 30],
     [-50,-20]
 ]
 export function init(scene, size, id, offset, texture) {
@@ -102,7 +104,15 @@ export function resize() {
 }
 
 // 描画処理
+const clock = new THREE.Clock();
+const carPosition = new THREE.Vector3();
+const carTarget = new THREE.Vector3();
 export function render(scene, car) {
+    const time = (clock.getElapsedTime() / 20);
+    course.getPointAt(time % 1, carPosition);
+    car.position.copy(carPosition);
+    course.getPointAt((time + 0.01) %1, carTarget);
+    car.lookAt(carTarget);
     camera.lookAt(car.position.x, car.position.y, car.position.z);
     renderer.render(scene, camera);
 }
