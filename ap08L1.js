@@ -72,10 +72,12 @@ export function init(scene, size, id, offset, texture) {
             geometry,
             material
         )
-        bldg.position.set(30,z,33);
+        bldg.position.set(x,bldgH/2,z);
         scene.add(bldg)
     }
     makeBuilding(20, 20, 0);
+    makeBuilding(24, -33, 2);
+    makeBuilding(80, -30, 3);
 
 
     // コース(描画)
